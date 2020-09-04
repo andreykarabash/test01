@@ -1,14 +1,15 @@
 package com.orc.ak;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ContactBook {
-    protected ArrayList<ContactCard> contactCards;
+    protected List<ContactCard> contactCards;
 
-    public ContactBook(ArrayList<ContactCard> contactCards) {
+    public ContactBook(List<ContactCard> contactCards) {
         this.contactCards = contactCards;
     }
 
@@ -27,11 +28,11 @@ public class ContactBook {
                 .collect(Collectors.joining(";\n\t")) + " }";
     }
 
-    public ArrayList<ContactCard> getContactCards() {
+    public List<ContactCard> getContactCards() {
         return contactCards;
     }
 
-    public void setContactCards(ArrayList<ContactCard> contactCards) {
+    public void setContactCards(List<ContactCard> contactCards) {
         this.contactCards = contactCards;
     }
 
@@ -48,19 +49,21 @@ public class ContactBook {
         return Objects.hash(contactCards);
     }
 
-    public ArrayList<ContactCard> getContactByPhone(Integer phone) {
-        final ArrayList<ContactCard> collect = contactCards.stream()
-                .filter(e -> Objects.nonNull(e.getPhone()))
-                .filter(e -> e.getPhone().equals(phone))
-                .collect(Collectors.toCollection( ()-> new ArrayList<ContactCard>() ));
-        return collect;
+    public List<ContactCard> getContactByPhone(Integer phone) {
+        if (phone == null)
+            return contactCards.stream()
+                    .filter(e -> Objects.isNull(e.getPhone()))
+                    .collect(Collectors.toList());
+        else
+            return contactCards.stream()
+                .filter(e -> phone.equals(e.getPhone()))
+                .collect(Collectors.toList());
     }
 
-    public ArrayList<ContactCard> getContactByName(String name) {
-        final ArrayList<ContactCard> collect = contactCards.stream()
+    public List<ContactCard> getContactByName(String name) {
+        return contactCards.stream()
                 .filter(e -> e.getName().equals(name))
-                .collect(Collectors.toCollection( ()-> new ArrayList<ContactCard>() ));
-        return collect;
+                .collect(Collectors.toList());
     }
 
     public void Add(ContactCard card) {
