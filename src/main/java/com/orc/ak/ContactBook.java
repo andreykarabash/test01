@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 public class ContactBook {
 
     // feat/91000 change2
+    // feat/93001 change21
 
     protected List<ContactCard> contactCards;
 
