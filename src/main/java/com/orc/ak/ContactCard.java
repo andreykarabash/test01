@@ -5,6 +5,7 @@ import java.util.Objects;
 public class ContactCard {
 
     // feat/90002 chng3
+    // feat/93003 chang2
 
     protected String name;
     protected Integer phone;
