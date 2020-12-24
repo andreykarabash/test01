@@ -3,6 +3,9 @@ package com.orc.ak;
 import java.util.Objects;
 
 public class ContactCard {
+
+    // feat/90002 chng3
+
     protected String name;
     protected Integer phone;
 
