@@ -6,6 +6,7 @@ public class ContactCard {
 
     // feat/90002 chng3
     // feat/93003 chang2
+    // feat/94001 change41-2
 
     protected String name;
     protected Integer phone;
