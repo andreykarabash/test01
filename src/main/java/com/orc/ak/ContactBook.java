@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class ContactBook {
+
+    // feat/91000 change2
+
     protected List<ContactCard> contactCards;
 
     public ContactBook(List<ContactCard> contactCards) {
