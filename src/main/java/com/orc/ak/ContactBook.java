@@ -13,6 +13,7 @@ public class ContactBook {
 
     // feat/91000 change2
     // feat/93001 change22
+    // feat/94002 change42
 
     protected List<ContactCard> contactCards;
 
